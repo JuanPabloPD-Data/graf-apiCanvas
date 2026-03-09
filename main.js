@@ -4,7 +4,7 @@ function draw() {
       const ctx = canvas.getContext("2d");
   
       ctx.fillStyle = "green";
-      ctx.fillRect(10, 10, 100, 100);
+      ctx.fillRect(50, 50, 250, 100)
       
     }
   }
