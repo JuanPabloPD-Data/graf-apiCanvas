@@ -1,23 +1,26 @@
 function draw() {
-    const canvas = document.getElementById("canvas");
-    if (canvas.getContext) {
-      const ctx = canvas.getContext("2d");
-  
-      
-    // Triángulo relleno
-    ctx.beginPath();
-    ctx.moveTo(25, 25);
-    ctx.lineTo(105, 25);
-    ctx.lineTo(25, 105);
-    ctx.fill();
+  const canvas = document.getElementById("canvas");
+  if (canvas.getContext) {
+    const ctx = canvas.getContext("2d");
 
-    // Triángulo contorneado
-    ctx.beginPath();
-    ctx.moveTo(125, 125);
-    ctx.lineTo(125, 45);
-    ctx.lineTo(45, 125);
-    ctx.closePath();
-    ctx.stroke();
-      
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 3; j++) {
+        ctx.beginPath();
+        const x = 25 + j * 50; // Coordenada x
+        const y = 25 + i * 50; // Coordenada y
+        const radius = 20; // Radio del Arco
+        const startAngle = 0; // Punto inicial del Círculo
+        const endAngle = Math.PI + (Math.PI * j) / 2; // Punto final del Círculo
+        const counterclockwise = i % 2 !== 0; // En el sentido de las agujas del reloj o en sentido contrario
+
+        ctx.arc(x, y, radius, startAngle, endAngle, counterclockwise);
+
+        if (i > 1) {
+          ctx.fill();
+        } else {
+          ctx.stroke();
+        }
+      }
     }
   }
+}
